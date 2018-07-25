@@ -1,0 +1,40 @@
+{
+    "name": "umi",
+    "displayName": "umi",
+    "icon": "images/umi.png",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "xiaohuoni",
+    "author": {
+        "name": "xiaohuoni"
+    },
+    "keywords": [
+        "umi"
+    ],
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/xiaohuoni/umi-vscode"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "javascript",
+                "path": "./snippets/javascript.json"
+            },
+            {
+                "language": "json",
+                "path": "./snippets/json.json"
+            },
+            {
+                "language": "html",
+                "path": "./snippets/html.json"
+            }
+        ]
+    }
+}

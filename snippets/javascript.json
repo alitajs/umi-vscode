@@ -1,0 +1,93 @@
+{
+    "Hello World": {
+        "prefix": "umi-HelloWorld",
+        "body": [
+            "export default () => <div>Index Page</div>;",
+            "$1"
+        ],
+        "description": "Hello World"
+    },
+    "Layout": {
+        "prefix": "umi-Layout",
+        "body": [
+            "export default function(props) {",
+            " \treturn (",
+            "\t\t<>",
+            "\t\t\t<Header />",
+            "\t\t\t\t{ props.children }",
+            "\t\t\t<Footer />",
+            "\t\t</>",
+            "\t);",
+            "}"
+        ],
+        "description": "layout"
+    },
+    "Layout2": {
+        "prefix": "umi-Layout2",
+        "body": [
+            "export default function(props) {",
+            "\tif (props.location.pathname === '/login') {",
+            "\t\treturn <SimpleLayout>{ props.children }</SimpleLayout>",
+            "\t}",
+            " \treturn (",
+            "\t\t<>",
+            "\t\t\t<Header />",
+            "\t\t\t\t{ props.children }",
+            "\t\t\t<Footer />",
+            "\t\t</>",
+            "\t);",
+            "}"
+        ],
+        "description": "layout2"
+    },
+    "PrivateRoute": {
+        "prefix": "umi-PrivateRoute",
+        "body": [
+            "import { Route } from 'react-router-dom';",
+            "",
+            "export default (args) => {",
+            "\tconst { render, ...rest } = args;",
+            "\treturn <Route",
+            "\t\t{...rest}",
+            "\t\trender={props =>",
+            "\t\t\t<div>",
+            "\t\t\t\t<div>PrivateRoute (routes/PrivateRoute.js)</div>",
+            "\t\t\t\t{",
+            "\t\t\t\t\trender(props)",
+            "\t\t\t\t}",
+            "\t\t\t</div>",
+            "\t\t}",
+            "\t/>;",
+            "}"
+        ],
+        "description": "注：PrivateRoute 里渲染子组件是通过 render 方法，而非 Component 组件属性"
+    },
+    "Umi Link Import": {
+        "prefix": "umi-Link-Import",
+        "body": [
+            "import Link from 'umi/link';"
+        ],
+        "description": "Umi Link Import"
+    },
+    "Umi Link": {
+        "prefix": "umi-Link",
+        "body": [
+            "<Link to=\"/list\">Go to list page</Link>"
+        ],
+        "description": "Umi Link,Please Add Umi Link Import"
+    },
+    "Umi Router Import": {
+        "prefix": "umi-Router-Import",
+        "body": [
+            "import router from 'umi/router';"
+        ],
+        "description": "Umi Router Import"
+    },
+    "Umi Router": {
+        "prefix": "umi-Router",
+        "body": [
+            "router.push('/list');"
+        ],
+        "description": "Umi Router,Please Add Umi Router Import"
+    }
+}
