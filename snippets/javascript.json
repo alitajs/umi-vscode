@@ -40,6 +40,17 @@
         ],
         "description": "layout2"
     },
+    "404": {
+        "prefix": "umi-404",
+        "body": [
+            "export default () => {",
+            "\treturn (",
+            "\t\t<div>404 page</div>",
+            "\t);",
+            "};"
+        ],
+        "description": "umi 中约定 pages 目录下的 404.js 为 404 页面，这个文件需要返回 React 组件"
+    },
     "PrivateRoute": {
         "prefix": "umi-PrivateRoute",
         "body": [
@@ -89,5 +100,364 @@
             "router.push('/list');"
         ],
         "description": "Umi Router,Please Add Umi Router Import"
+    },
+    "Umi Dynamic Component": {
+        "prefix": "umi-dynamic-component",
+        "body": [
+            "import dynamic from 'umi/dynamic';",
+            "const delay = (timeout) => new Promise(resolve => setTimeout(resolve, timeout));",
+            "const App = dynamic(async function() {",
+            "\tawait delay(/* 1s */1000);",
+            "\treturn () => <div>I will render after 1s</div>;",
+            "});"
+        ],
+        "description": "Umi 按需加载组件"
+    },
+    "Umi Dynamic Npm": {
+        "prefix": "umi-dynamic-npm",
+        "body": [
+            "import('g2').then(() => {",
+            "\t// do something with g2",
+            "});"
+        ],
+        "description": "Umi 按需加载模块"
+    },
+    "Umi Mock": {
+        "prefix": "umi-Mock",
+        "body": [
+            "`/${1:requestUrl}` (req, res, next) {",
+            "\tres.json({",
+            "\t\tresult: [",
+            "\t\t\t{",
+            "\t\t\t\tid: 1,",
+            "\t\t\t\tname: 'beijing',",
+            "\t\t\t\talias: '北京'",
+            " \t\t\t}",
+            "\t\t]",
+            "\t})",
+            "}"
+        ],
+        "description": "Umi Mock"
+    },
+    "Umi Mock Get": {
+        "prefix": "umi-Mock-Get",
+        "body": [
+            "`get /${1:requestUrl}` (req, res, next) {",
+            "\tres.json({",
+            "\t\tresult: [",
+            "\t\t\t{",
+            "\t\t\t\tid: 1,",
+            "\t\t\t\tname: 'beijing',",
+            "\t\t\t\talias: '北京'",
+            " \t\t\t}",
+            "\t\t]",
+            "\t})",
+            "}"
+        ],
+        "description": "Umi Mock Get"
+    },
+    "Umi Mock Post": {
+        "prefix": "umi-Mock-Post",
+        "body": [
+            "`post /${1:postUrl}` (req, res, next) {",
+            "\tres.json({",
+            "\t\tresult: [",
+            "\t\t\t{",
+            "\t\t\t\tcode: 0,",
+            "\t\t\t\tmsg: 'success',",
+            " \t\t\t}",
+            "\t\t]",
+            "\t})",
+            "}"
+        ],
+        "description": "Umi Mock Post"
+    },
+    "Umi Config HD": {
+        "prefix": "umi-Config-HD",
+        "body": [
+            "hd: true,"
+        ],
+        "description": "Umi Config HD,开启高清方案"
+    },
+    "Umi Config DisableServiceWorker": {
+        "prefix": "umi-Config-DisableServiceWorker",
+        "body": [
+            "disableServiceWorker: true,"
+        ],
+        "description": "Umi Config DisableServiceWorker,禁用 service worker"
+    },
+    "Umi Config Preact": {
+        "prefix": "umi-Config-Preact",
+        "body": [
+            "preact: true,"
+        ],
+        "description": "Umi Config Preact,切换 react 到 preact"
+    },
+    "Umi Config Loading": {
+        "prefix": "umi-Config-Loading",
+        "body": [
+            "loading: './PageLoadingComponent',"
+        ],
+        "description": "Umi Config Loading,指定页面切换时的 loading 效果组件，值为相对于项目根目录的文件路径。(只在 build 后有效)"
+    },
+    "Umi Config HashHistory": {
+        "prefix": "umi-Config-HashHistory",
+        "body": [
+            "hashHistory: true,"
+        ],
+        "description": "Umi Config HashHistory,切换 history 方式为 hash"
+    },
+    "Umi Config Singular": {
+        "prefix": "umi-Config-Singular",
+        "body": [
+            "singular: true,"
+        ],
+        "description": "Umi Config Singular,启用单数模式的目录"
+    },
+    "Umi Config DisableDynamicImport": {
+        "prefix": "umi-Config-DisableDynamicImport",
+        "body": [
+            "disableDynamicImport: true,"
+        ],
+        "description": "Umi Config DisableDynamicImport,禁用 Code Splitting，打包后只输出 umi.css 和 umi.js(文件尺寸会比较大)\n禁用 import() 按需加载，全部打包在一个文件里，通过 babel-plugin-dynamic-import-node-sync 实现"
+    },
+    "Umi Config DisableFastClick": {
+        "prefix": "umi-Config-DisableFastClick",
+        "body": [
+            "disableFastClick: true,"
+        ],
+        "description": "Umi Config DisableFastClick,不引入 fastclick 脚本"
+    },
+    "Umi Config OutputPath": {
+        "prefix": "umi-Config-OutputPath",
+        "body": [
+            "outputPath: './dist',"
+        ],
+        "description": "Umi Config OutputPath,指定输出路径"
+    },
+    "Umi Config Pages": {
+        "prefix": "umi-Config-Pages",
+        "body": [
+            "pages: {",
+            "\t'/index': { context: { title: 'IndexPage' } },",
+            "\t'/list':  { document: './list.ejs', context: { title: 'ListPage' } },",
+            "},"
+        ],
+        "description": "Umi Config Pages,配置每个页面的属性\n每个 page 都可配两个属性：\n1.document，指定模板\n2.context，指定模板里的变量，比如标题之类的"
+    },
+    "Umi Config Context": {
+        "prefix": "umi-Config-Context",
+        "body": [
+            "context: {",
+            "},"
+        ],
+        "description": "Umi Config Context,配置全局 context，会覆盖到每个 pages 里的 context"
+    },
+    "Umi Config ExportStatic": {
+        "prefix": "umi-Config-ExportStatic",
+        "body": [
+            "exportStatic: {",
+            "},"
+        ],
+        "description": "Umi Config ExportStatic,如果设为 true 或 Object，则导出全部路由为静态页面，否则默认只输出一个 index.html"
+    },
+    "Umi Config ExportStatic Html": {
+        "prefix": "umi-Config-ExportStatic-Html",
+        "body": [
+            "exportStatic: { htmlSuffix: true },"
+        ],
+        "description": "Umi Config ExportStatic,导出全部路由为静态页面，启用 *** .html ***后缀"
+    },
+    "Umi Config DisableHash": {
+        "prefix": "umi-Config-DisableHash",
+        "body": [
+            "disableHash: true,"
+        ],
+        "description": "Umi Config DisableHash,构建输出的文件名不带 hash 值"
+    },
+    "Umi Config Theme": {
+        "prefix": "umi-Config-Webpack-Theme",
+        "body": [
+            "theme: {",
+            "\t\"@primary-color\": \"#1DA57A\"",
+            "}"
+        ],
+        "description": "Umi Config Theme,配置主题，实际上是配 less 变量。支持对象和字符串两种类型，字符串需要指向一个返回配置的文件"
+    },
+    "Umi Config Define": {
+        "prefix": "umi-Config-Webpack-Define",
+        "body": [
+            "define: {",
+            "\t\"process.env.TEST\": 1,",
+            "\t\"USE_COMMA\": 2,",
+            "}"
+        ],
+        "description": "Umi Config Define,通过 webpack 的 DefinePlugin 传递给代码，值会自动做 JSON.stringify 处理"
+    },
+    "Umi Config Externals": {
+        "prefix": "umi-Config-Webpack-Externals",
+        "body": [
+            "externals: {",
+            "\t\"react\": \"window.React\",",
+            "\t\"react-dom\": \"window.ReactDOM\"",
+            "}"
+        ],
+        "description": "Umi Config Externals,配置 webpack 的externals属性,配置 react 和 react-dom 不打入代码"
+    },
+    "Umi Config Alias": {
+        "prefix": "umi-Config-Webpack-Alias",
+        "body": [
+            "alias: {",
+            "\tutils:path.resolve(__dirname,'src/utils/'),",
+            "}"
+        ],
+        "description": "Umi Config Alias,配置 webpack 的 resolve.alias 属性"
+    },
+    "Umi Config Browserslist": {
+        "prefix": "umi-Config-Webpack-Browserslist",
+        "body": [
+            "browserslist: [",
+            "\t\"> 1%\",",
+            "\t\"last 2 versions\"",
+            "]"
+        ],
+        "description": "Umi Config Browserslist,配置 browserslist，同时作用于 babel-preset-env 和 autoprefixer"
+    },
+    "Umi Config PublicPath": {
+        "prefix": "umi-Config-Webpack-PublicPath",
+        "body": [
+            "publicPath:\"\""
+        ],
+        "description": "Umi Config PublicPath,配置 webpack 的 output.publicPath 属性"
+    },
+    "Umi Config Devtool": {
+        "prefix": "umi-Config-Webpack-Devtool",
+        "body": [
+            "devtool:\"\""
+        ],
+        "description": "Umi Config Devtool,配置 webpack 的 devtool 属性"
+    },
+    "Umi Config DisableCSSModules": {
+        "prefix": "umi-Config-Webpack-DisableCSSModules",
+        "body": [
+            "disableCSSModules: true,"
+        ],
+        "description": "Umi Config DisableCSSModules,禁用 CSS Modules"
+    },
+    "Umi Config DisableCSSSourceMap": {
+        "prefix": "umi-Config-Webpack-DisableCSSSourceMap",
+        "body": [
+            "disableCSSSourceMap: true,"
+        ],
+        "description": "Umi Config DisableCSSSourceMap,禁用 CSS 的 SourceMap 生成"
+    },
+    "Umi Config ExtraBabelPresets": {
+        "prefix": "umi-Config-Webpack-ExtraBabelPresets",
+        "body": [
+            "extraBabelPresets: [],"
+        ],
+        "description": "Umi Config ExtraBabelPresets,定义额外的 babel preset 列表，格式为数组"
+    },
+    "Umi Config ExtraBabelPlugins": {
+        "prefix": "umi-Config-Webpack-ExtraBabelPlugins",
+        "body": [
+            "extraBabelPlugins: [],"
+        ],
+        "description": "Umi Config ExtraBabelPlugins,定义额外的 babel plugin 列表，格式为数组"
+    },
+    "Umi Config ExtraBabelIncludes": {
+        "prefix": "umi-Config-Webpack-ExtraBabelIncludes",
+        "body": [
+            "extraBabelIncludes: [],"
+        ],
+        "description": "Umi Config ExtraBabelIncludes,定义额外需要做 babel 转换的文件匹配列表，格式为数组"
+    },
+    "Umi Config CssModulesExcludes": {
+        "prefix": "umi-Config-Webpack-CssModulesExcludes",
+        "body": [
+            "cssModulesExcludes: [],"
+        ],
+        "description": "Umi Config CssModulesExcludes,指定项目目录下的文件不走 css modules，格式为数组，项必须是 css 或 less 文件"
+    },
+    "Umi Config Copy": {
+        "prefix": "umi-Config-Webpack-Copy",
+        "body": [
+            "copy: [",
+            "\t{",
+            "\t\t\"from\": \"\",",
+            "\t\t\"to\": \"\"",
+            "\t}",
+            "]"
+        ],
+        "description": "Umi Config Copy,定义需要单纯做复制的文件列表，格式为数组，项的格式参考 copy-webpack-plugin 的配置"
+    },
+    "Umi Config Proxy": {
+        "prefix": "umi-Config-Webpack-Proxy",
+        "body": [
+            "proxy: {",
+            "\t\"/api\": {",
+            "\t\t\"target\": \"http://jsonplaceholder.typicode.com/\",",
+            "\t\t\"changeOrigin\": true,",
+            "\t\t\"pathRewrite\": { \"^/api\" : \"\" }",
+            "\t}",
+            "}"
+        ],
+        "description": "Umi Config Proxy,配置 webpack-dev-server 的 proxy 属性。代理请求到其他服务器"
+    },
+    "Umi Config Sass": {
+        "prefix": "umi-Config-Webpack-Sass",
+        "body": [
+            "sass: {}"
+        ],
+        "description": "Umi Config Sass,配置 node-sass 的选项。注意：使用 sass 时需在项目目录安装 node-sass 和 sass-loader 依赖"
+    },
+    "Umi Config Manifest": {
+        "prefix": "umi-Config-Webpack-Manifest",
+        "body": [
+            "manifest: {",
+            "\t\"basePath\": \"/app/\"",
+            "}"
+        ],
+        "description": "Umi Config Manifest,配置后会生成 manifest.json，option 传给 https://www.npmjs.com/package/webpack-manifest-plugin"
+    },
+    "Umi Config IgnoreMomentLocale": {
+        "prefix": "umi-Config-Webpack-IgnoreMomentLocale",
+        "body": [
+            "ignoreMomentLocale: true"
+        ],
+        "description": "Umi Config IgnoreMomentLocale,忽略 moment 的 locale 文件，用于减少尺寸"
+    },
+    "Umi Config Es5ImcompatibleVersions": {
+        "prefix": "umi-Config-Webpack-Es5ImcompatibleVersions",
+        "body": [
+            "es5ImcompatibleVersions: true"
+        ],
+        "description": "Umi Config Es5ImcompatibleVersions,让 babel 自动编译使用了 es6 语法的 npm 模块"
+    },
+    "Umi Config LessLoaderOptions": {
+        "prefix": "umi-Config-Webpack-LessLoaderOptions",
+        "body": [
+            "lessLoaderOptions: { }"
+        ],
+        "description": "Umi Config LessLoaderOptions,给 less-loader 的额外配置项"
+    },
+    "Umi Config CssLoaderOptions": {
+        "prefix": "umi-Config-Webpack-CssLoaderOptions",
+        "body": [
+            "cssLoaderOptions: { }"
+        ],
+        "description": "Umi Config CssLoaderOptions,给 less-loader 的额外配置项"
+    },
+    "Umi Config Env": {
+        "prefix": "umi-Config-Webpack-Env",
+        "body": [
+            "extraBabelPlugins: [\"transform-runtime\"],",
+            "env: {",
+            "\t\"development\": {",
+            "\t\t\"extraBabelPlugins\": [\"dva-hmr\"]",
+            "\t}",
+            "}"
+        ],
+        "description": "Umi Config Env,针对特定的环境进行配置。dev 的环境变量是development，build 的环境变量是production"
     }
 }
